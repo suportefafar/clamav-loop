@@ -1,9 +1,17 @@
 # Varredura ClamAV em lotes
 
-Este programa varre os arquivos das partições dos discos informados, coloca em
-quarentena as detecções de malware e programas potencialmente indesejados
-(PUA) e inicia outra rodada depois da quarentena. Ele registra checkpoints
-para retomar uma rodada interrompida e produz relatórios para revisão.
+## Qual problema resolve
+
+Verificar discos com muitos arquivos pode levar horas, e uma interrupção ou um
+erro em alguns arquivos dificulta saber o que já foi analisado e o que ainda
+precisa de atenção. Além disso, tratar detecções manualmente e acompanhar os
+resultados de novas varreduras exige trabalho repetitivo.
+
+Esta ferramenta organiza a varredura de discos selecionados em lotes, registra
+o progresso para permitir a retomada e reúne as detecções e pendências em
+relatórios. Ela coloca as detecções em quarentena e inicia uma nova rodada após
+o isolamento. Arquivos não analisados continuam registrados como pendências;
+uma execução com pendências não garante que todo o conteúdo foi verificado.
 
 **É obrigatório informar cada disco inteiro com `--disco`.** Não existe disco
 padrão. O programa detecta as partições e registra identidade, UUIDs e formatos;
